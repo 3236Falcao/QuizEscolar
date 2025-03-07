@@ -1,36 +1,202 @@
+/* Estilização geral para todas as páginas */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #c70606;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 8px;
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 600px;
+    width: 100%;
 }
 
 h1 {
-    text-align: center;
     color: #333;
-}
-
-#quiz {
+    font-size: 2.5em;
     margin-bottom: 20px;
 }
 
-.question {
-    margin-bottom: 10px;
+h2 {
+    color: #555;
+    font-size: 1.5em;
+    margin-bottom: 20px;
 }
 
-.answer {
-    margin-left: 20px;
+/* Estilização dos formulários (usado em criarquiz.html) */
+form {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+form input[type="text"],
+form input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+form button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #45a049;
+}
+
+/* Estilização dos botões gerais */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.1em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Estilização da lista de quizzes (telaprincipal.html) */
+#quizList {
+    margin-bottom: 20px;
+}
+
+#quizList ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#quizList li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#quizList li button {
+    padding: 5px 10px;
+    font-size: 0.9em;
+    background-color: #2196F3;
+}
+
+#quizList li button:hover {
+    background-color: #1e88e5;
+}
+
+#quizList p {
+    color: #777;
+    font-style: italic;
+}
+
+/* Estilização da lista de perguntas (criarquiz.html) */
+#perguntasList {
+    margin-top: 20px;
+    text-align: left;
+}
+
+#perguntasList ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#perguntasList li {
+    background-color: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+#perguntasList p {
+    color: #777;
+    font-style: italic;
+}
+
+/* Estilização específica para o quiz (quiz.html) */
+.question {
+    margin-bottom: 20px;
+    text-align: left;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.question p {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.question label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.question input[type="radio"] {
+    margin-right: 10px;
 }
 
 #resultado {
-    text-align: center;
-    font-weight: bold;
     margin-top: 20px;
+    font-size: 1.2em;
+    color: #333;
+}
+
+/* Estilização para mensagens de erro ou feedback */
+#resultado:empty::before {
+    content: "";
+}
+
+#resultado.error {
+    color: #e74c3c;
+}
+
+#resultado.success {
+    color: #2ecc71;
 }

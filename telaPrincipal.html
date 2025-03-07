@@ -11,11 +11,48 @@
         <h1>Quiz escolar 2024</h1>
         <div id="inicio">
             <h2>Bem-vindo ao Quiz!</h2>
+            <div id="quizList">
+                <!-- Lista de quizzes será preenchida dinamicamente -->
+            </div>
             <div class="button-container">
-                <a href="quiz.html" target="_blank"><button>Começar Quiz</button></a>
+                <button onclick="mostrarListaQuizzes()">Começar Quiz</button>
                 <a href="criarquiz.html" target="_blank"><button>Criar Novo Quiz</button></a>
             </div>
         </div>
     </div>
+
+    <script>
+        function mostrarListaQuizzes() {
+            const quizzes = JSON.parse(localStorage.getItem('quizzes')) || [];
+            const quizList = document.getElementById('quizList');
+            quizList.innerHTML = '';
+
+            if (quizzes.length === 0) {
+                quizList.innerHTML = '<p>Nenhum quiz disponível. Crie um novo quiz primeiro!</p>';
+                return;
+            }
+
+            const ul = document.createElement('ul');
+            quizzes.forEach((quiz, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <span>${index + 1}. ${quiz.name} (${quiz.questions.length} perguntas)</span>
+                    <button onclick="iniciarQuiz(${index})">Escolher</button>
+                `;
+                ul.appendChild(li);
+            });
+            quizList.appendChild(ul);
+        }
+
+        function iniciarQuiz(index) {
+            const quizzes = JSON.parse(localStorage.getItem('quizzes')) || [];
+            const selectedQuiz = quizzes[index];
+            localStorage.setItem('currentQuiz', JSON.stringify(selectedQuiz));
+            window.open('quiz.html', '_blank');
+        }
+
+        // Carrega a lista ao clicar no botão (não automaticamente ao carregar a página)
+        // Isso evita que a lista apareça sem interação
+    </script>
 </body>
 </html>

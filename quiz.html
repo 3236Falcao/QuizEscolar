@@ -3,18 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz</title>
+    <title>Realizar Quiz</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Quiz Escolar</h1>
-        <div id="quiz">
-            <!-- Aqui serão inseridas as perguntas e respostas dinamicamente -->
+        <h1>Realizar Quiz</h1>
+        <div id="quizInfo">
+            <h2 id="quizName"></h2>
         </div>
-        <button id="submit">Enviar Respostas</button>
-        <div id="resultado"></div>
-        <script src="script.js"></script>
+        <div id="quizContainer">
+            <!-- Perguntas e opções serão preenchidas dinamicamente -->
+        </div>
+        <div class="button-container">
+            <button onclick="verificarRespostas()">Enviar Respostas</button>
+            <a href="telaprincipal.html"><button type="button">Voltar à Tela Principal</button></a>
+        </div>
+        <p id="resultado"></p>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>

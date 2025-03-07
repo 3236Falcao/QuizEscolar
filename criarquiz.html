@@ -2,37 +2,45 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar Quiz</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <h1>Criar Novo Quiz</h1>
-        <form id="quiz-form">
-            <!-- Aqui você pode adicionar os campos para criar um novo quiz -->
-            <label for="pergunta">Pergunta:</label>
-            <input type="text" id="pergunta" name="pergunta" required><br>
+        <form id="quizForm">
+            <label>Nome do Quiz:</label><br>
+            <input type="text" id="quizName" required><br><br>
 
-            <label for="opcao1">Opção 1:</label>
-            <input type="text" id="opcao1" name="opcao1" required><br>
+            <label>Pergunta:</label><br>
+            <input type="text" id="question" required><br><br>
 
-            <label for="opcao2">Opção 2:</label>
-            <input type="text" id="opcao2" name="opcao2" required><br>
+            <label>Opção 1:</label><br>
+            <input type="text" id="option1" required><br><br>
 
-            <label for="opcao3">Opção 3:</label>
-            <input type="text" id="opcao3" name="opcao3" required><br>
+            <label>Opção 2:</label><br>
+            <input type="text" id="option2" required><br><br>
 
-            <label for="resposta">Resposta Correta:</label>
-            <select id="resposta" name="resposta" required>
-                <option value="opcao1">Opção 1</option>
-                <option value="opcao2">Opção 2</option>
-                <option value="opcao3">Opção 3</option>
-            </select><br>
+            <label>Opção 3:</label><br>
+            <input type="text" id="option3" required><br><br>
 
-            <button type="submit">Criar Pergunta</button>
+            <label>Resposta Correta (1, 2 ou 3):</label><br>
+            <input type="number" id="answer" min="1" max="3" required><br><br>
+
+            <button type="submit">Adicionar Pergunta</button>
         </form>
-        <script src="criarquiz.js"></script>
+
+        <h2>Perguntas Criadas</h2>
+        <div id="perguntasList">
+            <!-- Lista de perguntas será preenchida dinamicamente -->
+        </div>
+
+        <div class="button-container">
+            <button onclick="salvarQuiz()">Salvar Quiz</button>
+            <a href="telaprincipal.html"><button type="button">Voltar à Tela Principal</button></a>
+        </div>
     </div>
+
+    <script src="criarquiz.js"></script>
 </body>
 </html>
