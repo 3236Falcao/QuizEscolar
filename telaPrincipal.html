@@ -16,7 +16,7 @@
             </div>
             <div class="button-container">
                 <button onclick="mostrarListaQuizzes()">Começar Quiz</button>
-                <a href="criarquiz.html" target="_blank"><button>Criar Novo Quiz</button></a>
+                <a href="criarquiz.html"><button>Criar Novo Quiz</button></a>
             </div>
         </div>
     </div>
@@ -48,11 +48,8 @@
             const quizzes = JSON.parse(localStorage.getItem('quizzes')) || [];
             const selectedQuiz = quizzes[index];
             localStorage.setItem('currentQuiz', JSON.stringify(selectedQuiz));
-            window.open('quiz.html', '_blank');
+            window.location.href = 'quiz.html'; // Redireciona na mesma aba
         }
-
-        // Carrega a lista ao clicar no botão (não automaticamente ao carregar a página)
-        // Isso evita que a lista apareça sem interação
     </script>
 </body>
 </html>
